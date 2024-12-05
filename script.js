@@ -8,7 +8,7 @@ fetch('https://js-dynamic-portfolio-data-makerslab-emlyon-cdweb-8f83155c64a0cc.g
     .then(data => {
 
         let presentation = document.getElementById("presentation");
-        let p = document.getElementById("pp");
+        // let p = document.getElementById("pp");
         let activites = document.getElementById("activites");
 
 
@@ -21,9 +21,13 @@ fetch('https://js-dynamic-portfolio-data-makerslab-emlyon-cdweb-8f83155c64a0cc.g
         h1p.textContent = data.phraseAccroche;
         presentation.appendChild(h2p);
 
-        let pp = document.createElement("p");
-        pp.textContent = data.avantagesClients;
-        p.appendChild(pp);
+
+        data.avantagesClients.forEach(element => {
+            let marre = document.createElement("p");
+            marre.textContent = element;
+            presentation.appendChild(marre);
+    
+        })
 
         data.activites.forEach(element => {
             let diva = document.createElement("div");
